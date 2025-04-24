@@ -1,7 +1,40 @@
-cd /calea/catre/folderul/InsideFotbal
-git init
-git add .
-git commit -m "Prima versiune a site-ului InsideFotbal"
-git branch -M main
-git remote add origin https://github.com/USERNAME/insidefotbal.git
-git push -u origin main
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function InsideFotbalHome() {
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-900 p-4">
+      <header className="text-center py-10">
+        <h1 className="text-5xl font-bold text-green-700">InsideFotbal</h1>
+        <p className="text-lg mt-2">Tot ce e nou și interesant din lumea fotbalului</p>
+      </header>
+
+      <main className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 p-4">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            className="transition-transform duration-300"
+          >
+            <Card className="rounded-2xl shadow-lg hover:shadow-2xl">
+              <CardContent className="p-4">
+                <h2 className="text-xl font-semibold text-green-800">
+                  Articol Fotbal #{i + 1}
+                </h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Un rezumat interesant despre o noutate recentă sau o curiozitate fotbalistică.
+                </p>
+                <Button className="mt-4">Citește mai mult</Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </main>
+
+      <footer className="text-center py-6 text-sm text-gray-500">
+        © 2025 InsideFotbal.com | Toate drepturile rezervate
+      </footer>
+    </div>
+  );
+}
