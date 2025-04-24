@@ -1,0 +1,7 @@
+cd /calea/catre/folderul/InsideFotbal
+git init
+git add .
+git commit -m "Prima versiune a site-ului InsideFotbal"
+git branch -M main
+git remote add origin https://github.com/USERNAME/insidefotbal.git
+git push -u origin main
